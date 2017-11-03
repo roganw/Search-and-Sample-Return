@@ -35,14 +35,18 @@ def decision_step(Rover):
                     dist = np.linalg.norm(np.array(Rover.pos) - np.array(Rover.last_pos))
                     if dist < 0.01:
                         Rover.stuck_count += 1
-                    if Rover.stuck_count > Rover.stuck_times:
-                        Rover.stuck = True
-                        Rover.mode = 'stop'
-                        Rover.steer = -180
-                        # Rover.throttle = 1
-                        Rover.stuck_count = 0
+                        if Rover.stuck_count > Rover.stuck_times:
+                            Rover.stuck = True
+                            Rover.mode = 'stop'
+                            Rover.steer = -180
+                            # Rover.throttle = 1
+                            Rover.stuck_count = 0
+                        else:
+                            Rover.stuck = False
                     else:
                         Rover.stuck = False
+                else:
+                    Rover.stuck = False
 
             # If there's a lack of navigable terrain pixels then go to 'stop' mode
             elif len(Rover.nav_angles) < Rover.stop_forward:
