@@ -135,7 +135,7 @@ data.worldmap[already_nav, 0] = 0
 data.worldmap[rock_y_world, rock_x_world, :] = [255, 255, 255]
 ```
 
-Step 2. Generate test video
+Step 2. Generate test video  
 Though that video, I observed the effect and adjusted the parameters in previous method.
 ![test_video][image7]
 
@@ -143,7 +143,7 @@ Though that video, I observed the effect and adjusted the parameters in previous
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
-1.1 Perception
+1.1 Perception  
 Referring from the code testing in notebook, most of the work in `perception_step` has been done.  
 Additionally, the rover data was get from Rover instance and some logic was added to pitch up rock samples.
 When the program find a rock, it not only map the rock to worldmap but also change the rover's navigate direction.
@@ -174,7 +174,7 @@ elif not Rover.near_rock:
     Rover.nav_angles = angles
 ```
 
-1.2 Decision
+1.2 Decision  
 To make more precise decision, I add several parameter to Rover class. 
 `rock_pixels` represent the minimum pixels of a rock sample.  
 `missing_rock` is a counter of missing times after detect a rock.  
@@ -230,17 +230,17 @@ else:
 ```
 
 #### 1. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
-2.1 Environment 
+2.1 Environment  
 Operation System: MacOS Sierra  
 Screen resolution: 800 * 600  
-Graphics Quality: Fastest
-Windowed: True
-FPS: 30~40
+Graphics Quality: Fastest  
+Windowed: True  
+FPS: 30~40  
 
-2.2 Result
+2.2 Result  
 The rover will pick up 2 to 4 rock samples normally, but might stuck among the obstacles when running around. 
 
-2.3 Improvement
+2.3 Improvement  
 It's important for the rover to adjust direction to the rock when it appears in the view to pick it up.
 But the code need to be improved to avoid go round and round, and how to get out when stuck in obstacles.
 
