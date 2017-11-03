@@ -245,7 +245,7 @@ The rover will pick up 2 to 4 rock samples normally, but might stuck among the o
 It's important for the rover to adjust direction to the rock when it appears in the view to pick it up.
 But the code need to be improved to avoid go round and round, and how to get out when stuck in obstacles.
 
-2.4 A roughly flow chart
+2.4 A rough flow chart
 ![flow_chat][image8]
 
 
